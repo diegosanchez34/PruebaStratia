@@ -1,24 +1,45 @@
-# README
+1. Clonar repositorio en una carpeta local.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+	https://github.com/diegosanchez34/prueba.git
 
-Things you may want to cover:
+2. Descargar e instalar Ruby.
 
-* Ruby version
+	https://rubyinstaller.org/
 
-* System dependencies
+3. Abrir una terminal y instalar rails.
 
-* Configuration
+	gem install rails
 
-* Database creation
+4. Si tiene Node.js instalado, abrir una consola e instalar yarn.
 
-* Database initialization
+	npm install --global yarn
 
-* How to run the test suite
+5. Instalar los modulos necesarios de yarn.
 
-* Services (job queues, cache servers, search engines, etc.)
+	yarn install
 
-* Deployment instructions
+6. Descargar e instalar PostgreSQL.
 
-* ...
+	https://www.enterprisedb.com/downloads/postgres-postgresql-downloads
+
+7. Configurar el archivo config/database.yml con las siguientes credenciales.
+
+ 	username: postgres
+ 	password: admin (contraseña definida durante la instalación de PostgreSQL)
+ 	host: localhost
+
+8. Agregar el Paquete de instalación de gems.
+
+	gem install bundler
+
+9. Instalar las gem del proyecto.
+
+	bundler install
+
+10. Configurar la base de datos.
+
+	rails db:setup
+
+7. Correr el servidor.
+
+	rails server
