@@ -1,0 +1,25 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title mb-0"><%= action_name == 'new' ? 'Nueva Tarea' : 'Editar Tarea' %></h2>
+    </div>
+    <div class="card-body">
+      <%= form_for [@project, @task] do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <br>
+        <div class="form-group">
+          <%= f.label :completed %>
+          <%= f.check_box :completed, class: 'form-check-input' %>
+        </div>
+        <br>
+        <div class="form-group">
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= link_to 'Volver', project_path(@project), class: 'btn btn-secondary ml-2' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

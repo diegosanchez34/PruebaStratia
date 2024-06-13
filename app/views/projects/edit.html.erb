@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title mb-0"><%= action_name == 'new' ? 'Nuevo Proyecto' : 'Editar Proyecto' %></h2>
+    </div>
+    <div class="card-body">
+      <%= form_for @project do |f| %>
+        <div class="form-group">
+          <%= f.label :title %>
+          <%= f.text_field :title, class: 'form-control' %>
+        </div>
+        <br>
+        <div class="form-group">
+          <%= f.submit class: 'btn btn-primary' %>
+          <%= link_to 'Volver', projects_path, class: 'btn btn-secondary ml-2' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,25 @@
+<% if user_signed_in? %>
+
+  <h2 class="text-center my-4">Bienvenido, <%= current_user.username %></h2>
+  <div class="container">
+    <div class="card my-4">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h3 class="mb-0">Tus Proyectos:</h3>
+        <%= link_to 'Nuevo Proyecto', new_project_path, class: 'btn btn-primary' %>
+      </div>
+      <div class="card-body">
+        <ul class="list-group">
+          <% @projects.each do |project| %>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              <%= link_to project.title, project %>
+              <div>
+                <%= link_to 'Editar', edit_project_path(project), class: 'btn btn-secondary btn-sm mx-1' %>
+                <%= link_to 'Eliminar', project, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,35 @@
+<div class="container mt-5">
+  <div class="card my-4">
+    <div class="card-header d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+      <h2 class="card-title mb-0">Proyecto: <%= @project.title %></h2>
+      <div class="mt-2 mt-md-0">
+        <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-secondary mx-1' %>
+        <%= link_to 'Eliminar', @project, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger mx-1' %>
+        <%= link_to 'Volver', projects_path, class: 'btn btn-secondary mx-1' %>
+      </div>
+    </div>
+    <div class="card-body">
+      <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center">
+        <h3 class="card-title mb-0">Listado de Tareas:</h3>
+        <div class="mt-2 mt-md-0">
+          <%= link_to 'Nueva Tarea', new_project_task_path(@project), class: 'btn btn-primary mb-3' %>
+        </div>
+      </div>
+      <ul class="list-group">
+        <% @project.tasks.each do |task| %>
+          <li class="list-group-item d-flex justify-content-between align-items-center">
+            <% if request.user_agent =~ /mobile/i %> <!-- Verifica si el dispositivo es móvil -->
+              <%= link_to task.title, [@project, task], style: 'width: 49%;' %> <!-- Si es móvil, ancho del 40% -->
+            <% else %>
+              <%= link_to task.title, [@project, task], style: 'width: 75%;' %> <!-- Si no es móvil, ancho del 80% -->
+            <% end %>
+            <div style="<%= request.user_agent =~ /mobile/i ? 'width: 51%;' : 'width: 25%; text-align: right;' %>"> <!-- Si es móvil, ancho del 60% y texto a la derecha -->
+              <%= link_to 'Editar', edit_project_task_path(@project, task), class: 'btn btn-secondary btn-sm mx-1' %>
+              <%= link_to 'Eliminar', [@project, task], method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger btn-sm' %>
+            </div>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

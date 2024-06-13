@@ -1,0 +1,14 @@
+<div class="container mt-5">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title"><%= @task.title %></h2>
+      <p class="card-text">Completada: <%= @task.completed ? 'Sí' : 'No' %></p>
+      
+      <div class="btn-group" role="group" aria-label="Acciones">
+        <%= link_to 'Editar', edit_project_task_path(@project, @task), class: 'btn btn-secondary' %>
+        <%= link_to 'Eliminar', project_task_path(@project, @task), method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger' %>
+        <%= link_to 'Volver', project_path(@project), class: 'btn btn-secondary' %>
+      </div>
+    </div>
+  </div>
+</div>

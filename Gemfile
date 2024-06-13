@@ -73,3 +73,5 @@ gem 'bootstrap', '~> 5.2'
 gem 'sassc-rails'
 
 gem 'popper_js'
+
+gem 'jquery-rails'
